@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
         Person: {person.name}
+        <div className="testing">Limegreen</div>
     </div>
   );
 }
