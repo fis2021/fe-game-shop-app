@@ -1,11 +1,12 @@
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import App from './App';
+
+import Auth from 'modules/Auth';
 
 const Router = () => {
     return <BrowserRouter>
         <Switch>
             <Route exact path="/">
-                <App />
+                <Auth />
             </Route>
 
             <Redirect to="/" />

@@ -1,9 +1,18 @@
 import StateManager from 'redux-state-manager';
+import Cookies from 'js-cookie';
+
+const authToken = Cookies.get('authToken');
 
 const stateManager = new StateManager({
-    apiUrl: 'http://0.0.0.0:8000/api/',
+    apiUrl: 'http://0.0.0.0:8000/api',
     initialState: {
-        testing: {0: {name: 'John Doe'}}
+        testing: {
+            auth: {
+                token: authToken,
+                user_id: 0,
+                username: ''
+            }
+        }
     }
 });
 
