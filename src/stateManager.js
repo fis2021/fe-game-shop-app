@@ -12,10 +12,10 @@ const stateManager = new StateManager({
             user_id: 0,
             username: ''
         },
-        users: [],
-        games: [],
-        reviews: [],
-        categories: [],
+        users: {},
+        games: {},
+        categories: {},
+        reviews: {},
     },
     tokenSelector: (state) => state.auth.token
 });

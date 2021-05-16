@@ -11,7 +11,7 @@ const DataRetriever = ({ children }) => {
     const [display, setDisplayPage] = useState(false);
 
     useEffect(() => {
-        dispatch(retrieveUsers({test: "123"}));
+        dispatch(retrieveUsers({}));
         dispatch(retrieveGames({}));
         dispatch(retrieveCategories({}));
         dispatch(retrieveReviews({}));

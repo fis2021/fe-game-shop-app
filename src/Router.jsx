@@ -34,11 +34,11 @@ const Router = () => {
         </Switch>
     );
 
-    return <BrowserRouter>
-        <DataRetriever>
+    return <DataRetriever>
+        <BrowserRouter>
             <AppLayout menu={<Navigation />} content={routing} />
-        </DataRetriever>
-    </BrowserRouter>
+        </BrowserRouter>
+    </DataRetriever>
 };
 
 export default Router;

@@ -1,10 +1,11 @@
 import { apiManager } from "stateManager";
+import {indexArray} from "../../services/indexArray";
 
 export const retrieveGames = apiManager.createJsonRequest('RETRIEVE_GAMES', {
     path: '/games',
     method: 'GET',
     successReducer: (state, result) => {
-        state.games = result;
+        state.games = indexArray(result);
     },
 });
 
@@ -12,7 +13,7 @@ export const retrieveUsers = apiManager.createJsonRequest('RETRIEVE_USERS', {
     path: '/users',
     method: 'GET',
     successReducer: (state, result) => {
-        state.users = result;
+        state.users = indexArray(result);
     },
 });
 
@@ -20,7 +21,7 @@ export const retrieveCategories = apiManager.createJsonRequest('RETRIEVE_CATEGOR
     path: '/categories',
     method: 'GET',
     successReducer: (state, result) => {
-        state.categories = result;
+        state.categories = indexArray(result);
     },
 });
 
@@ -29,6 +30,6 @@ export const retrieveReviews = apiManager.createJsonRequest('RETRIEVE_REVIEWS', 
     path: '/reviews',
     method: 'GET',
     successReducer: (state, result) => {
-        state.reviews = result;
+        state.reviews = indexArray(result);
     },
 });
