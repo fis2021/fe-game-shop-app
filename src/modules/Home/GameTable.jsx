@@ -1,11 +1,14 @@
 import { Table } from "antd";
 import { useSelector } from "stateManager";
+import columnSearchMixin from "./columnSearchMixin";
 
 const columns = [
     {
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
+        sorter: (a, b) => (a.username > b.username ? 1 : -1),
+        ...columnSearchMixin('username'),
     },
 ];
 
