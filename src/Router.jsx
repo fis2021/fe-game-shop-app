@@ -7,6 +7,7 @@ import Game from 'modules/Game';
 import Home from 'modules/Home';
 import Navigation from "./components/Navigation";
 import AppLayout from "./components/AppLayout";
+import DataRetriever from "./components/DataRetriever";
 
 const Router = () => {
     const { token } = useSelector((state) => state.auth);
@@ -34,7 +35,9 @@ const Router = () => {
     );
 
     return <BrowserRouter>
-        <AppLayout menu={<Navigation />} content={routing} />
+        <DataRetriever>
+            <AppLayout menu={<Navigation />} content={routing} />
+        </DataRetriever>
     </BrowserRouter>
 };
 
