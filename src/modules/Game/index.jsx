@@ -1,13 +1,14 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom'
 
-import { Descriptions } from "antd";
+import { Descriptions, Button, Modal } from "antd";
 import { useSelector } from "stateManager";
 import { retrieveGames } from "components/DataRetriever/actions";
 
 const Game = () => {
     const { id } = useParams();
     const loading = useSelector(retrieveGames.loadingSelector);
-    const { name, categories, seller, description }  = useSelector(state => state.games[id]);
+    const { name, categories, seller, description, key }  = useSelector(state => state.games[id]);
 
     const globalCategories = useSelector(state => Object.values(state.categories));
     const localCategories = globalCategories.filter(category => categories.includes(category.id));
@@ -21,14 +22,36 @@ const Game = () => {
     const rating = totalRating / reviews.length;
 
 
-    return loading ? 'Loading...' : <Descriptions title={ name } layout="vertical">
-        <Descriptions.Item label="Category">
-            { localCategories.map(category => category.name).join(',') }
-        </Descriptions.Item>
-        <Descriptions.Item label="Seller">{ sellerName }</Descriptions.Item>
-        <Descriptions.Item label="Rating">{ rating }</Descriptions.Item>
-        <Descriptions.Item label="Description">{ description }</Descriptions.Item>
-    </Descriptions>
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(false);
+
+    const showModal = () => {
+        setIsModalVisible(true);
+    };
+
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
+
+
+    return loading ? 'Loading...' : <>
+        <Descriptions title={ name } layout="vertical">
+            <Descriptions.Item label="Category">
+                { localCategories.map(category => category.name).join(',') }
+            </Descriptions.Item>
+            <Descriptions.Item label="Seller">{ sellerName }</Descriptions.Item>
+            <Descriptions.Item label="Rating">{ rating }</Descriptions.Item>
+            <Descriptions.Item label="Description">{ description }</Descriptions.Item>
+        </Descriptions>
+        <Button type="primary" onClick={ () => {showModal(); setIsDisabled(true);} } disabled={ isDisabled }>Buy this game</Button>
+        <Modal title="Game key" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+            <p>{ key }</p>
+        </Modal>
+    </>
 }
 
 export default Game
