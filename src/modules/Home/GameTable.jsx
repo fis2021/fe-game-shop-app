@@ -11,7 +11,7 @@ const columns = [
 
 
 const GameTable = () => {
-    const games = useSelector(state => state.games) || [];
+    const games = useSelector(state => state.games);
     return <Table dataSource={games} columns={columns} />;
 }
 
