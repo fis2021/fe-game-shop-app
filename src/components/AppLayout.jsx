@@ -12,7 +12,7 @@ const AppLayout = ({menu, content}) => {
                 { content }
             </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Kriss & Narcis © 2020 | Built with style</Footer>
+        <Footer style={{ textAlign: 'center' }}>Kriss & Narcis © 2021 | Built with style</Footer>
     </Layout>
 }
 
