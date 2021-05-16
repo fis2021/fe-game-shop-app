@@ -6,12 +6,11 @@ const authToken = Cookies.get('authToken');
 const stateManager = new StateManager({
     apiUrl: 'http://0.0.0.0:8000/api',
     initialState: {
-        testing: {
-            auth: {
-                token: authToken,
-                user_id: 0,
-                username: ''
-            }
+        auth: {
+            token: authToken,
+            user_type: 0,
+            user_id: 0,
+            username: ''
         }
     }
 });

@@ -1,18 +1,26 @@
-import {useDispatch} from "stateManager";
-import {useEffect} from "react";
+import { Typography, Row, Col } from 'antd';
 
-import { login } from './actions';
+import LoginForm from './LoginForm';
+
 
 const Auth = () => {
-    const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(login({username: 'customer', password: '1234'}))
-    }, [dispatch]);
+    return <div className="auth">
+        <div  className="auth__wrapper">
+            <Row align={'center'}>
+                <Typography.Title level={2}>Welcome to the best fkin' budget game shop ever</Typography.Title>
+            </Row>
+            <Row align={'center'}>
+                <Col span={7}>
 
-    return <div>
-        <h1>Auth</h1>
-
+                    <Typography.Title level={4}>
+                        Please enter your credentials
+                    </Typography.Title>
+                    <br />
+                    <LoginForm />
+                </Col>
+            </Row>
+        </div>
     </div>
 }
 
