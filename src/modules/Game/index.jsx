@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 
-import { Descriptions, Button, Modal } from "antd";
+import {Descriptions, Button, Modal, Table} from "antd";
 import { useSelector } from "stateManager";
 import { retrieveGames } from "components/DataRetriever/actions";
+import columnSearchMixin from "../Home/columnSearchMixin";
 
 const Game = () => {
     const { id } = useParams();
@@ -47,6 +48,20 @@ const Game = () => {
             <Descriptions.Item label="Rating">{ rating }</Descriptions.Item>
             <Descriptions.Item label="Description">{ description }</Descriptions.Item>
         </Descriptions>
+
+        <Table dataSource={reviews} columns={[
+            {
+                title: 'Rating',
+                dataIndex: 'rating',
+                key: 'rating',
+            },
+            {
+                title: 'Description',
+                dataIndex: 'description',
+                key: 'description',
+            },
+        ]} />
+
         <Button type="primary" onClick={ () => {showModal(); setIsDisabled(true);} } disabled={ isDisabled }>Buy this game</Button>
         <Modal title="Game key" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
             <p>{ key }</p>
