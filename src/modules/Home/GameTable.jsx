@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
+
 import { Table } from "antd";
+
 import { useSelector } from "stateManager";
 import columnSearchMixin from "./columnSearchMixin";
 import {retrieveGames, retrieveUsers, retrieveCategories} from 'components/DataRetriever/actions'
@@ -22,12 +25,15 @@ const GameTable = () => {
             key: 'name',
             sorter: (a, b) => (a.username > b.username ? 1 : -1),
             ...columnSearchMixin('username'),
+            render: (any, record) => {
+                return <Link to={`/game/${record.id}`}>{ record.name }</Link>
+            }
         },
         {
             title: 'Category',
             render: (any, record) => {
                 const result = [];
-                record.categories.forEach(id => {
+                record.categories.forEach(() => {
                     result.push(categories[record.id])
                 })
                 return result.map(item => item?.name).join(',');
@@ -39,7 +45,7 @@ const GameTable = () => {
                 return users[record.seller]?.username;
             }
         }
-    ]} />;
+    ]} />
 }
 
 export default GameTable;
