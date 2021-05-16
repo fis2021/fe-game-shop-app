@@ -3,6 +3,8 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import {useSelector} from "stateManager";
 
 import Auth from 'modules/Auth';
+import Game from 'modules/Game';
+import Home from 'modules/Home';
 
 const Router = () => {
     const { token } = useSelector((state) => state.auth);
@@ -19,9 +21,12 @@ const Router = () => {
     return <BrowserRouter>
         <Switch>
             <Route exact path="/">
-                <Auth />
+                <Home />
             </Route>
 
+            <Route exact path="/game/:id">
+                <Game />
+            </Route>
             <Redirect to="/" />
         </Switch>
     </BrowserRouter>
