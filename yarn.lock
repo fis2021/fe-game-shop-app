@@ -10227,10 +10227,10 @@ redux-saga@^1.1.3:
   dependencies:
     "@redux-saga/core" "^1.1.3"
 
-redux-state-manager@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/redux-state-manager/-/redux-state-manager-2.2.1.tgz#d37d3f6d9920b8d6b0351bff7f27e19e95e6a566"
-  integrity sha512-DtQ5Z/6RuuA4wZK3rJRQ+m0NULAHTb7nI2hz7WG2VNEux+igAnTibhqjVmIUFX9acQfYhYXvOQZ4Kyw51K8dMg==
+redux-state-manager@2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/redux-state-manager/-/redux-state-manager-2.2.3.tgz#efa938eb4de8bb76afa80afc11b6da924569b6fa"
+  integrity sha512-cC0iQhQ1AawKaJwpsYRxYsa1kxnmx40ynnmHPfldLGzXon6U/vLQfuTAUU+Qc4yghFJ2In7fzpN4dh83QOJICA==
   dependencies:
     immer "^7.0.7"
     query-string "^6.13.1"

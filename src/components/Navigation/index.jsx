@@ -16,7 +16,7 @@ const Navigation = () => {
     const [menuKey, setMenuKey] = useState('home');
 
     return (
-        <Menu onclick={(e) => setMenuKey(e.key)} selectedKeys={[menuKey]} mode="horizontal">
+        <Menu onClick={(e) => setMenuKey(e.key)} selectedKeys={[menuKey]} mode="horizontal">
             <Menu.Item key="logo" icon={<AntDesignOutlined />}>
                 <Link to="/">Game Shop</Link>
             </Menu.Item>

@@ -11,8 +11,13 @@ const stateManager = new StateManager({
             user_type: 0,
             user_id: 0,
             username: ''
-        }
-    }
+        },
+        users: {},
+        games: {},
+        categories: {},
+        reviews: {},
+    },
+    tokenSelector: (state) => state.auth.token
 });
 
 const { apiManager, socketManager } = stateManager.managers;

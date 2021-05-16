@@ -6,6 +6,8 @@ import Auth from 'modules/Auth';
 import Game from 'modules/Game';
 import Home from 'modules/Home';
 import Navigation from "./components/Navigation";
+import AppLayout from "./components/AppLayout";
+import DataRetriever from "./components/DataRetriever";
 
 const Router = () => {
     const { token } = useSelector((state) => state.auth);
@@ -19,8 +21,7 @@ const Router = () => {
         </BrowserRouter>
     }
 
-    return <BrowserRouter>
-        <Navigation />
+    const routing = (
         <Switch>
             <Route exact path="/">
                 <Home />
@@ -31,7 +32,13 @@ const Router = () => {
             </Route>
             <Redirect to="/" />
         </Switch>
-    </BrowserRouter>
+    );
+
+    return <DataRetriever>
+        <BrowserRouter>
+            <AppLayout menu={<Navigation />} content={routing} />
+        </BrowserRouter>
+    </DataRetriever>
 };
 
 export default Router;
