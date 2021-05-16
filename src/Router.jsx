@@ -5,6 +5,7 @@ import {useSelector} from "stateManager";
 import Auth from 'modules/Auth';
 import Game from 'modules/Game';
 import Home from 'modules/Home';
+import Navigation from "./components/Navigation";
 
 const Router = () => {
     const { token } = useSelector((state) => state.auth);
@@ -19,6 +20,7 @@ const Router = () => {
     }
 
     return <BrowserRouter>
+        <Navigation />
         <Switch>
             <Route exact path="/">
                 <Home />
